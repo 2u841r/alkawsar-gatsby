@@ -76,7 +76,7 @@ const Projects = ({ data }) => {
                         const { an, title, issue, author, category } = a.frontmatter;
                         return <Link to={`/articles/${an}`} key={a.id}>
                             <div >
-                                <h3>  <Link to={`/issues/${issue}`} > {issue} </Link> -  <Link to={`/sections/${category}`} > {category} </Link></h3>
+                                <h5>  <Link to={`/issues/${issue}`} > {issue} </Link> : <Link to={`/sections/${category}`} > {category} </Link></h5>
                                 <h1> {title}</h1>
                                 <h3> <Link to={`/authors/${author}`} > {author} </Link> </h3>
                             </div>

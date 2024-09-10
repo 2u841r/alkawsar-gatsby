@@ -61,6 +61,22 @@ nav a:hover {
   border-color: white;
 }
 
+
+div h3 a, div h1 {
+  margin-left: 10px;
+  font-weight: 400;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+
+div h3 a:hover, div h1:hover {
+  border-color: white;
+}
+
+div nav h1:hover{
+  border-color: transparent;
+}
+
 footer {
   margin-top: auto;
   text-align: center;

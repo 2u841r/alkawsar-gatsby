@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/Layout"
-import * as styles from '../styles/projects.module.css'
+import * as styles from '../styles/p.module.css'
 import { graphql, Link } from "gatsby"
 
 const Issues = ({ data }) => {
