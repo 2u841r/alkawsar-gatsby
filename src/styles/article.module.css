@@ -1,0 +1,39 @@
+.details h2 {
+  font-size: 2em; /* Smaller font size for mobile */
+  margin-top: 40px; /* Reduced margin for mobile */
+}
+
+.details h3 {
+  font-size: 1.5em; /* Smaller font size for mobile */
+  font-weight: 400;
+  margin-bottom: 20px; /* Reduced margin for mobile */
+}
+
+.html {
+  margin-top: 20px; /* Adjusted margin for mobile */
+}
+
+.featured {
+  margin-bottom: 20px; /* Adjusted margin for mobile */
+}
+
+/* Media query for desktop */
+@media (min-width: 768px) {
+  .details h2 {
+    font-size: 3.5em; /* Larger font size for desktop */
+    margin-top: 40px; /* Larger margin for desktop */
+  }
+
+  .details h3 {
+    font-size: 2em; /* Larger font size for desktop */
+    margin-bottom: 40px; /* Larger margin for desktop */
+  }
+
+  .html {
+    margin-top: 40px; /* Larger margin for desktop */
+  }
+
+  .featured {
+    margin-bottom: 40px; /* Larger margin for desktop */
+  }
+}
