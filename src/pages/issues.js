@@ -18,7 +18,7 @@ const Issues = ({ data }) => {
       const { issue } = a.frontmatter;
       return (
         <Link to={`/issues/${issue}`} key={a.id} className="no-underline">
-          <div className="bg-white bg-opacity-10 p-4 rounded-lg transition duration-300 hover:bg-opacity-20 hover:shadow-lg">
+          <div className="bg-white bg-opacity-10 p-6 rounded-lg transition duration-300 hover:bg-opacity-20 hover:shadow-lg">
             <h3 className="text-lg font-semibold text-center">{issue}</h3>
           </div>
         </Link>

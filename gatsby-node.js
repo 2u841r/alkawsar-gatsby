@@ -41,7 +41,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
     createPage({
       path: '/sections/' + node.frontmatter.category,
-      component: path.resolve('./src/templates/category-template.js'),
+      component: path.resolve('./src/templates/section-template.js'),
       context: { category: node.frontmatter.category }
     })
   })

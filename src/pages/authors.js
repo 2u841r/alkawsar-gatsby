@@ -12,7 +12,7 @@ const Authors = ({ data }) => {
     return (
       <Layout>
       <h2 className="text-3xl font-bold text-center mt-2 mb-2">লেখক</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-4">
           {uniqueAuthors.map(a => {
               const { author } = a.frontmatter;
               return (

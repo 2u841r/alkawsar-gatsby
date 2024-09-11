@@ -1,15 +1,18 @@
 import React from 'react'
 import Layout from '../components/Layout'
+// import * as styles from '../styles/article.module.css'
+import * as styles from '../styles/projects.module.css'
 
-import { graphql, Link} from "gatsby"
+import { graphql, Link } from "gatsby"
 
-const oldIssues = ({data}) => {
+const categoryTemplate = ({ data }) => {
 
-  const oldIssuesArticles = data.allMarkdownRemark.nodes; 
-  return (   <Layout>
-          <h3 className="text-3xl font-bold text-center mt-2 mb-2"> সংখ্যা- {oldIssuesArticles[0].frontmatter.issue}</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
-        {oldIssuesArticles.map(a => {
+  const allSectionArticles = data.allMarkdownRemark.nodes;
+  return (
+    <Layout>
+      <h3 className="text-3xl font-bold text-center mt-2 mb-2"> বিভাগ- {allSectionArticles[0].frontmatter.category}</h3>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
+        {allSectionArticles.map(a => {
           const { an, title, issue, author, category } = a.frontmatter;
           return (
             <Link to={`/articles/${an}`} key={a.id} className="no-underline">
@@ -27,15 +30,15 @@ const oldIssues = ({data}) => {
           );
         })}
       </div>
-  </Layout>
+    </Layout>
   )
 }
 
-export default oldIssues; 
+export default categoryTemplate;
 
 export const query = graphql` 
-query oldIssuesArticles($issue: String) {
-  allMarkdownRemark(filter: {frontmatter: {issue: {eq: $issue}}}) {
+query allSectionArticles($category: String) {
+  allMarkdownRemark(filter: {frontmatter: {category: {eq: $category}}}) {
     nodes {
       frontmatter {
         an
@@ -49,3 +52,15 @@ query oldIssuesArticles($issue: String) {
   }
 }
 `
+
+// export const query = graphql`
+// query MyQuery($author: String) {
+//   markdownRemark(frontmatter: {author: {eq: $author}}) {
+//     frontmatter {
+//       title
+//       an
+//     }
+//     html
+//   }
+// }
+// `

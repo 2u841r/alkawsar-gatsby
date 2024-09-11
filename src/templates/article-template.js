@@ -30,7 +30,7 @@ const articleDetails = ({ data }) => {
 export default articleDetails
 
 export const query = graphql` 
-query MyQuery($an: Int) {
+query articleDetails($an: Int) {
   markdownRemark(frontmatter: {an: {eq: $an}}) {
     frontmatter {
       author
