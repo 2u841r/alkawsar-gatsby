@@ -18,18 +18,18 @@ const Topics = ({ data }) => {
     const uniqueTopics = Array.from(allTopics)
 
     return (
-        <Layout>
-            <h2>বিষয়সমূহ</h2>
-            <div className={styles.projects}>
-                {uniqueTopics.map(topic => (
-                    <Link to={`/topics/${topic}`} key={topic}>
-                        <div>
-                            <h3>{topic}</h3>
-                        </div>
-                    </Link>
-                ))}
-            </div>
-        </Layout>
+<Layout>
+    <h2 className="text-3xl font-bold text-center mt-2 mb-2">বিষয়সমূহ</h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
+        {uniqueTopics.map(topic => (
+            <Link to={`/topics/${topic}`} key={topic} className="no-underline">
+                <div className="bg-white bg-opacity-10 p-6 rounded-lg transition duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+                    <h3 className="text-xl font-semibold text-center">{topic}</h3>
+                </div>
+            </Link>
+        ))}
+    </div>
+</Layout>
     );
 }
 
