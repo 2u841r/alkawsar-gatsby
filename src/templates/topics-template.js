@@ -1,11 +1,10 @@
 import React from 'react'
 import Layout from '../components/Layout'
-import * as styles from '../styles/projects.module.css'
 import { graphql, Link } from "gatsby"
 
 const topicsTemplate = ({ data, pageContext }) => {
   const allTopicsArticles = data.allMarkdownRemark.nodes;
-  console.log(data)
+  // console.log(data)
   return (
     <Layout>
       <h3 className="text-3xl font-bold text-center mt-2 mb-2"> বিষয়- {pageContext.topic}</h3>

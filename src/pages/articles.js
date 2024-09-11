@@ -34,7 +34,7 @@ export default Projects
 
 export const query = graphql`
 query MyQuery {
-  allMarkdownRemark(sort: {frontmatter: {issue: DESC}})  {
+  allMarkdownRemark(sort: {frontmatter: {an: DESC}})  {
     nodes {
       frontmatter {
         an

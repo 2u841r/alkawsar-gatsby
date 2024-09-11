@@ -36,7 +36,7 @@ export const query = graphql`
 query MyQuery {
   allMarkdownRemark(
     sort: {frontmatter: {issue: DESC}}
-    filter: {frontmatter: {issue: {eq: "September 2024"}}}
+    filter: {frontmatter: {issue: {eq: "সেপ্টেম্বর ২০২৪"}}}
   ) {
     nodes {
       frontmatter {

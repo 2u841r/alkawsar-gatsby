@@ -1,12 +1,10 @@
 import React from 'react'
 import Layout from '../components/Layout'
-// import * as styles from '../styles/article.module.css'
-import * as styles from '../styles/projects.module.css'
 
 import { graphql, Link } from "gatsby"
 
 const authorTemplate = ({ data }) => {
-  console.log(data)
+  // console.log(data)
   const hisAllArticles = data.allMarkdownRemark.nodes;
   return (
     <Layout>

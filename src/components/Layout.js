@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
         <div>
           <p> কপিরাইট © ২০২৪ মাসিক আলকাউসার</p>
           <p>
-            Developer by
+            Developer by&nbsp;
             <a
               className="text-green-400"
               href="https://zubairiz.com"
