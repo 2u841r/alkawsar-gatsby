@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from './Navbar'
 import '../styles/global.css'
-import { Link } from 'gatsby'
 
 const Layout = ({ children }) => {
     return (
@@ -13,8 +12,8 @@ const Layout = ({ children }) => {
             <footer className="mt-auto text-center py-5">
                 <div>
                     <p> কপিরাইট © ২০২৪ মাসিক আলকাউসার</p>
-                    <p> Developer by <Link className='text-green-400' to='https://zmt3.com'> Zubair Ibn Zamir - ZMT3 </Link></p>
-                    <Link className='text-blue-400' to='https://github.com/2u841r/alkawsar-gatsby'>source code on gitbub</Link>
+                    <p> Developer by <a className='text-green-400' href='https://zubairiz.com' target='_blank' rel="noreferrer"> Zubair Ibn Zamir </a> - <a className='text-green-500' href='https://zmt3.com' rel="noreferrer"> ZMT3 </a> </p>
+                    <a className='text-blue-400' href='https://github.com/2u841r/alkawsar-gatsby' target='_blank' rel="noreferrer">source code on gitbub</a>
                 </div>
             </footer>
         </div>
