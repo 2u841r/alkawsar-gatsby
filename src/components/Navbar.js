@@ -1,10 +1,13 @@
 import { Link, graphql, useStaticQuery } from 'gatsby'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useLocation } from '@reach/router'
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
+    const [menuHeight, setMenuHeight] = useState(0)
+    const location = useLocation()
 
-  const data = useStaticQuery(graphql`
+    const data = useStaticQuery(graphql`
     query MyQuery1 {
       site {
         siteMetadata {
@@ -14,82 +17,99 @@ const Navbar = () => {
     }
   `)
 
-  const { title } = data.site.siteMetadata
+    const { title } = data.site.siteMetadata
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+    const toggleMenu = () => {
+        setIsOpen(!isOpen)
+    }
 
-  return (
-    <nav className="flex justify-between items-center my-5 mx-auto w-full max-w-7xl md:my-10">
-      {/* Logo on the left */}
-      <div className="flex-shrink-0">
-        <Link to="/" className="inline-block">
-          <img src="/alkawsar_logo.svg" width="100" alt={title} />
-        </Link>
-      </div>
+    useEffect(() => {
+        if (isOpen) {
+            const menuElement = document.getElementById('mobile-menu')
+            if (menuElement) {
+                setMenuHeight(menuElement.scrollHeight)
+            }
+        } else {
+            setMenuHeight(0)
+        }
+    }, [isOpen])
 
-      {/* Hamburger Button for mobile */}
-      <button
-        onClick={toggleMenu}
-        className="block md:hidden"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="size-6"
+    const isCurrentPage = (path) => location.pathname === path
+
+    const NavLink = ({ to, children }) => (
+        <Link
+            to={to}
+            className="p-2"
+            onClick={toggleMenu}
+            aria-current={isCurrentPage(to) ? "page" : undefined}
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-          />
-        </svg>
-      </button>
+            {children}
+        </Link>
+    )
 
-      {/* Menu items on the right */}
-      <div className="hidden md:flex items-center space-x-5">
-        <Link to="/articles" className="hover:border-white">সব প্রবন্ধ</Link>
-        <Link to="/issues" className="hover:border-white">সকল সংখ্যা</Link>
-        <Link to="/sections" className="hover:border-white">বিভাগ</Link>
-        <Link to="/topics" className="hover:border-white">বিষয়বস্তু</Link>
-        <Link to="/authors" className="hover:border-white">লেখক</Link>
-        <Link to="/about" className="hover:border-white">পরিচিতি</Link>
-      </div>
+    return (
+        <nav className="relative">
+            {/* ... (previous code remains unchanged) ... */}
+            <div className="flex justify-between items-center my-5 mx-auto w-full max-w-7xl md:my-10">
+                {/* Logo on the left */}
+                <div className="flex-shrink-0">
+                    <Link to="/" className="inline-block">
+                        <img src="/alkawsar_logo.svg" width="100" alt={title} />
+                    </Link>
+                </div>
 
-      {/* Mobile Menu */}
-      <div
-        className={`absolute top-0 right-0 h-full bg-purple-700 text-white flex flex-col items-center justify-center w-full transition-transform ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        } md:hidden`}
-      >
-        <Link to="/" className="lg:hidden p-4" onClick={toggleMenu}>
-          হোমপেজ
-        </Link>
-        <Link to="/articles" className="p-4" onClick={toggleMenu}>
-          সব প্রবন্ধ
-        </Link>
-        <Link to="/issues" className="p-4" onClick={toggleMenu}>
-          সকল সংখ্যা
-        </Link>
-        <Link to="/sections" className="p-4" onClick={toggleMenu}>
-          বিভাগ
-        </Link>
-        <Link to="/topics" className="p-4" onClick={toggleMenu}>
-          বিষয়বস্তু
-        </Link>
-        <Link to="/authors" className="p-4" onClick={toggleMenu}>
-          লেখক
-        </Link>
-        <Link to="/about" className="p-4" onClick={toggleMenu}>
-          পরিচিতি
-        </Link>
-      </div>
-    </nav>
-  )
+                {/* Hamburger Button for mobile */}
+                <button
+                    onClick={toggleMenu}
+                    className="block md:hidden"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="size-6"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                        />
+                    </svg>
+                </button>
+
+                {/* Menu items on the right */}
+                <div className="hidden md:flex items-center space-x-5">
+                    <Link to="/articles" className="hover:border-white">সব প্রবন্ধ</Link>
+                    <Link to="/issues" className="hover:border-white">সকল সংখ্যা</Link>
+                    <Link to="/sections" className="hover:border-white">বিভাগ</Link>
+                    <Link to="/topics" className="hover:border-white">বিষয়বস্তু</Link>
+                    <Link to="/authors" className="hover:border-white">লেখক</Link>
+                    <Link to="/about" className="hover:border-white">পরিচিতি</Link>
+                </div>
+            </div>
+            {/* Mobile Menu */}
+            <div
+                id="mobile-menu"
+                className={`absolute top-full left-0 right-0 rounded-b-2xl text-white overflow-hidden transition-all duration-300 ease-in-out md:hidden ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                    }`}
+                style={{
+                    maxHeight: `${menuHeight}px`,
+                    background: 'radial-gradient(at top left, rgba(146,43,225,1) 0%, rgba(43,9,107,1) 100%)'
+                }}
+            >
+                <div className="flex flex-col items-center py-4">
+                    <NavLink to="/articles">সব প্রবন্ধ</NavLink>
+                    <NavLink to="/issues">সকল সংখ্যা</NavLink>
+                    <NavLink to="/sections">বিভাগ</NavLink>
+                    <NavLink to="/topics">বিষয়বস্তু</NavLink>
+                    <NavLink to="/authors">লেখক</NavLink>
+                    <NavLink to="/about">পরিচিতি</NavLink>
+                </div>
+            </div>
+        </nav>
+    )
 }
 
 export default Navbar
