@@ -1,12 +1,10 @@
 import React from "react"
 import Layout from "../components/Layout"
-import * as styles from '../styles/project.module.css'
 import { graphql, Link } from "gatsby"
 
 const Sections = ({ data }) => {
   const articles = data.allMarkdownRemark.nodes
 
-  // Use a Set to filter out unique authors
   const uniqueSections = [...new Map(articles.map(article => [article.frontmatter.category, article])).values()]
 
   return (
