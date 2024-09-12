@@ -80,13 +80,13 @@ const Navbar = () => {
 
                 {/* Menu items on the right */}
                 <div className="hidden md:flex items-center space-x-5">
-                    <Link to="/" className="hover:border-white">মূলপাতা</Link>
-                    <Link to="/articles" className="hover:border-white">সব প্রবন্ধ</Link>
-                    <Link to="/issues" className="hover:border-white">সকল সংখ্যা</Link>
-                    <Link to="/sections" className="hover:border-white">বিভাগ</Link>
-                    <Link to="/topics" className="hover:border-white">বিষয়বস্তু</Link>
-                    <Link to="/authors" className="hover:border-white">লেখক</Link>
-                    <Link to="/about" className="hover:border-white">পরিচিতি</Link>
+                    <Link to="/" className="hover:border-white hover:underline">মূলপাতা</Link>
+                    <Link to="/articles" className="hover:border-white hover:underline">সব প্রবন্ধ</Link>
+                    <Link to="/issues" className="hover:border-white hover:underline">সকল সংখ্যা</Link>
+                    <Link to="/sections" className="hover:border-white hover:underline">বিভাগ</Link>
+                    <Link to="/topics" className="hover:border-white hover:underline">বিষয়বস্তু</Link>
+                    <Link to="/authors" className="hover:border-white hover:underline">লেখক</Link>
+                    <Link to="/about" className="hover:border-white hover:underline">পরিচিতি</Link>
                 </div>
             </div>
             {/* Mobile Menu */}

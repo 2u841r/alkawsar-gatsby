@@ -4,6 +4,8 @@ import Layout from "../components/Layout"
 const about = () => {
      return (
           <Layout>
+               <h2 className="text-3xl font-bold text-center my-2">পরিচিতি</h2>
+
                <div>
                     <h1 className='text-2xl text-green-400'> মাসিক আলকাউসার</h1>
                     <p className='my-4'>
