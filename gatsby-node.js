@@ -29,7 +29,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
     createPage({
       path: '/issues/' + node.frontmatter.issue,
-      component: path.resolve('./src/templates/old-issue-template.js'),
+      component: path.resolve('./src/templates/issue-template.js'),
       context: { issue: node.frontmatter.issue }
     })
 

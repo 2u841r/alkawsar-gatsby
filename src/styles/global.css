@@ -4,7 +4,7 @@
 
 @layer base {
     html, body {
-      @apply h-full m-0 font-['Montserrat'] text-white;
+      @apply h-full m-0 font-['SolaimanLipi','Montserrat'] text-white;
     }
     body {
       @apply bg-gradient-radial from-purple-600 to-purple-900 bg-no-repeat bg-fixed;

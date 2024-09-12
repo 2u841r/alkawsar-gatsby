@@ -89,18 +89,20 @@ const Navbar = () => {
                     <Link to="/about" className="hover:border-white hover:underline">পরিচিতি</Link>
                 </div>
             </div>
+
+
             {/* Mobile Menu */}
             <div
                 id="mobile-menu"
                 className={`absolute top-full left-0 right-0 rounded-b-2xl text-white overflow-hidden transition-all duration-300 ease-in-out md:hidden ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
                     }`}
-                style={{
+                style={{ zIndex: 50,
                     maxHeight: `${menuHeight}px`,
                     background: 'radial-gradient(at top left, rgba(146,43,225,1) 0%, rgba(43,9,107,1) 100%)'
                 }}
             >
                 <div className="flex flex-col items-center py-4">
-                    <NavLink to="/articles">সব প্রবন্ধ</NavLink>
+                    <NavLink to="/articles">সকল প্রবন্ধ</NavLink>
                     <NavLink to="/issues">সকল সংখ্যা</NavLink>
                     <NavLink to="/sections">বিভাগ</NavLink>
                     <NavLink to="/topics">বিষয়বস্তু</NavLink>
