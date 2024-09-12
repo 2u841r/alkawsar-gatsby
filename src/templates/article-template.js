@@ -1,6 +1,5 @@
 import React from 'react'
 import Layout from '../components/Layout'
-import * as styles from '../styles/article.module.css'
 import { graphql, Link } from 'gatsby'
 
 import { useCopyLinkPopup } from '../util/clipboard';
@@ -13,14 +12,23 @@ const ArticleDetails = ({ data }) => {
 
   return (
     <Layout>
-      <div className={styles.details}>
-        <div className="flex justify-between items-center">
-          <h3><Link to={`/sections/${category}`}>{category}</Link></h3>
-          <p><Link to={`/issues/${issue}`}>{issue}</Link></p>
+      <div className="mt-5">
+        {/* Category and Issue */}
+        <div className="flex justify-between items-center mb-3 md:mb-5">
+          <h3 className="text-lg md:text-2xl font-normal">
+            <Link to={`/sections/${category}`}>{category}</Link>
+          </h3>
+          <p className="text-lg md:text-2xl font-normal">
+            <Link to={`/issues/${issue}`}>{issue}</Link>
+          </p>
         </div>
 
+        {/* Title and Popup */}
         <div className="relative">
-          <h2 onClick={copyLinkToClipboard} style={{ cursor: 'pointer' }}>
+          <h2
+            onClick={copyLinkToClipboard} onKeyDown={copyLinkToClipboard} role="presentation"
+            className="text-2xl md:text-4xl cursor-pointer"
+          >
             {title}
           </h2>
 
@@ -30,17 +38,25 @@ const ArticleDetails = ({ data }) => {
               Link copied to clipboard!
             </div>
           )}
-          <h3><Link to={`/authors/${author}`}>{author}</Link></h3>
-        </div>
-        
-        <div className={styles.html} dangerouslySetInnerHTML={{ __html: html }}></div>
 
-        <div>
-          <div className="flex items-center">
+          <h3 className="text-lg md:text-xl font-normal mt-1">
+            <Link to={`/authors/${author}`}>{author}</Link>
+          </h3>
+        </div>
+
+        {/* Article Content */}
+        <div
+          className="mt-5"
+          dangerouslySetInnerHTML={{ __html: html }}
+        ></div>
+
+        {/* Topics */}
+        <div className="mt-5">
+          <div className="flex flex-wrap items-center">
             <p className="font-bold text-lg mr-2">প্রসঙ্গসমূহ:</p>
             {topics.map((i) => (
               <Link
-                className="bg-pink-600 m-1 mt-2 px-2 rounded"
+                className="bg-pink-600 m-1 mt-2 px-2 rounded text-white"
                 to={`/topics/${i}`}
                 key={i}
               >
@@ -49,12 +65,11 @@ const ArticleDetails = ({ data }) => {
             ))}
           </div>
         </div>
-
-
       </div>
     </Layout>
   );
 };
+
 
 export default ArticleDetails;
 

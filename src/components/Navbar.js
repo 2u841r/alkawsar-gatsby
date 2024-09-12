@@ -49,8 +49,7 @@ const Navbar = () => {
 
     return (
         <nav className="relative">
-            {/* ... (previous code remains unchanged) ... */}
-            <div className="flex justify-between items-center my-5 mx-auto w-full max-w-7xl md:my-10">
+            <div className="flex justify-between items-center my-5 mx-auto w-full max-w-7xl md:my-6">
                 {/* Logo on the left */}
                 <div className="flex-shrink-0">
                     <Link to="/" className="inline-block">
@@ -81,6 +80,7 @@ const Navbar = () => {
 
                 {/* Menu items on the right */}
                 <div className="hidden md:flex items-center space-x-5">
+                    <Link to="/" className="hover:border-white">মূলপাতা</Link>
                     <Link to="/articles" className="hover:border-white">সব প্রবন্ধ</Link>
                     <Link to="/issues" className="hover:border-white">সকল সংখ্যা</Link>
                     <Link to="/sections" className="hover:border-white">বিভাগ</Link>
