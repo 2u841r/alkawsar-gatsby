@@ -49,15 +49,3 @@ query allSectionArticles($category: String) {
   }
 }
 `
-
-// export const query = graphql`
-// query MyQuery($author: String) {
-//   markdownRemark(frontmatter: {author: {eq: $author}}) {
-//     frontmatter {
-//       title
-//       an
-//     }
-//     html
-//   }
-// }
-// `
