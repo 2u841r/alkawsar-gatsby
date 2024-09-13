@@ -1,12 +1,15 @@
 import React from 'react'
 import Layout from '../components/Layout'
 import { graphql, Link } from "gatsby"
+import { Helmet } from 'react-helmet';
 
 const categoryTemplate = ({ data }) => {
 
   const allSectionArticles = data.allMarkdownRemark.nodes;
   return (
     <Layout>
+      <Helmet title={`${allSectionArticles[0].frontmatter.category} | আল কাউসার`} />
+
       <h3 className="text-3xl font-bold text-center mt-2 mb-2"> বিভাগ- {allSectionArticles[0].frontmatter.category}</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
         {allSectionArticles.map(a => {

@@ -2,16 +2,22 @@ import React from 'react'
 import Layout from '../components/Layout'
 import { graphql, Link } from 'gatsby'
 
-import { useCopyLinkPopup } from '../util/clipboard';
+import { useCopyLinkPopup } from '../utils/clipboard';
+import { SEO } from '../components/SEO';
+import { Helmet } from 'react-helmet';
+import config from '../utils/config';
 
 const ArticleDetails = ({ data }) => {
   const { showPopup, copyLinkToClipboard } = useCopyLinkPopup();
   const { html } = data.markdownRemark;
   const { author, category, issue, title } = data.markdownRemark.frontmatter;
   const { topics } = data.markdownRemark.frontmatter;
-
+  const post = data.markdownRemark;
+  // console.log(post)
   return (
     <Layout>
+      <Helmet title={`${title} | ${config.siteTitle}`} />
+      <SEO postPath={`/articles/${post.frontmatter.an}`} postNode={post} postSEO />
       <div className="mt-5">
         {/* Category and Issue */}
         <div className="flex justify-between items-center mb-3 md:mb-5">
@@ -25,7 +31,7 @@ const ArticleDetails = ({ data }) => {
 
         {/* Title and Popup */}
         <div className="relative">
-          <h2
+          <h2 id='title'
             onClick={copyLinkToClipboard} onKeyDown={copyLinkToClipboard} role="presentation"
             className="text-2xl md:text-4xl cursor-pointer"
           >
@@ -65,6 +71,10 @@ const ArticleDetails = ({ data }) => {
             ))}
           </div>
         </div>
+
+        <div className='flex'>
+        <Link to='#navbar' className='my-5'> ↑ উপরে যান </Link>
+        </div>
       </div>
     </Layout>
   );
@@ -77,6 +87,7 @@ export const query = graphql`
 query articleDetails($an: Int) {
   markdownRemark(frontmatter: {an: {eq: $an}}) {
     frontmatter {
+      an
       author
       category
       issue

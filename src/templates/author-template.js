@@ -1,15 +1,17 @@
 import React from 'react'
 import Layout from '../components/Layout'
 import { graphql, Link } from "gatsby"
+import { Helmet } from 'react-helmet';
+import { SEO } from '../components/SEO';
 
 const authorTemplate = ({ data }) => {
   // console.log(data)
   const hisAllArticles = data.allMarkdownRemark.nodes;
   return (
     <Layout>
-     
-     <h3 className="text-3xl font-bold text-center mt-2 mb-2"> লেখক- {hisAllArticles[0].frontmatter.author}</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
+      <Helmet title={`${hisAllArticles[0].frontmatter.author} | আল কাউসার`} />
+      <h3 className="text-3xl font-bold text-center mt-2 mb-2"> লেখক- {hisAllArticles[0].frontmatter.author}</h3>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
         {hisAllArticles.map(a => {
           const { an, title, issue, author, category } = a.frontmatter;
           return (

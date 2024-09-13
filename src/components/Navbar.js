@@ -48,7 +48,7 @@ const Navbar = () => {
     )
 
     return (
-        <nav className="relative">
+        <nav className="relative" id='navbar'>
             <div className="flex justify-between items-center my-5 mx-auto w-full max-w-7xl md:my-6">
                 {/* Logo on the left */}
                 <div className="flex-shrink-0">

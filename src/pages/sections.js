@@ -1,6 +1,9 @@
 import React from "react"
 import Layout from "../components/Layout"
 import { graphql, Link } from "gatsby"
+import { Helmet } from "react-helmet"
+import { SEO } from "../components/SEO"
+import config from "../utils/config"
 
 const Sections = ({ data }) => {
   const articles = data.allMarkdownRemark.nodes
@@ -9,6 +12,8 @@ const Sections = ({ data }) => {
 
   return (
     <Layout>
+      <Helmet title={`বিভাগ | ${config.siteTitle}`} />
+      <SEO />
       <h2 className="text-3xl font-bold text-center mt-2 mb-2">বিভাগ</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
         {uniqueSections.map(a => {

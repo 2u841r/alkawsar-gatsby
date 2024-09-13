@@ -1,12 +1,16 @@
 import * as React from "react"
 import Layout from "../components/Layout"
 import { graphql, Link } from "gatsby"
+import { Helmet } from "react-helmet"
+import { SEO } from "../components/SEO"
 
 const Projects = ({ data }) => {
   // console.log(data)
   const articles = data.allMarkdownRemark.nodes
   return (
     <Layout>
+      <Helmet title={`সব প্রবন্ধ`} />
+      <SEO />
       <h2 className="text-3xl font-bold text-center my-2">সব প্রবন্ধ</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
         {articles.map(a => {

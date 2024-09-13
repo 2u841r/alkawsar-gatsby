@@ -1,14 +1,17 @@
 import React from 'react'
 import Layout from '../components/Layout'
 import { graphql, Link } from "gatsby"
+import { Helmet } from 'react-helmet';
 
 const topicsTemplate = ({ data, pageContext }) => {
   const allTopicsArticles = data.allMarkdownRemark.nodes;
-  // console.log(data)
+  console.log(data)
   return (
     <Layout>
+      <Helmet title={`${pageContext.topic} | আল কাউসার`} />
+
       <h3 className="text-3xl font-bold text-center mt-2 mb-2"> বিষয়- {pageContext.topic}</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
         {allTopicsArticles.map(a => {
           const { an, title, issue, author, category } = a.frontmatter;
           return (
