@@ -53,7 +53,7 @@ const Navbar = () => {
                 {/* Logo on the left */}
                 <div className="flex-shrink-0">
                     <Link to="/" className="inline-block">
-                        <img src="/alkawsar_logo.svg" width="100" alt={title} />
+                        <img src="/alkawsar_logo.png" width="100" alt={title} />
                     </Link>
                 </div>
 

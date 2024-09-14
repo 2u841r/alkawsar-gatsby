@@ -15,12 +15,12 @@ const Index = ({ data }) => {
       <Helmet title={`মূলপাতা | ${config.siteTitle}`} />
       <SEO />
       <h2 className="text-3xl font-bold text-center my-2">সেপ্টেম্বর ২০২৪</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
         {articles.map(a => {
           const { an, title, issue, author, category } = a.frontmatter;
           return (
             <Link to={`/articles/${an}`} key={a.id} className="no-underline">
-              <div className="bg-white bg-opacity-10 hover:bg-opacity-15 transition-colors duration-300 p-4 rounded-lg h-44 w-full flex flex-col justify-between">
+              <div className="bg-white bg-opacity-10 hover:bg-opacity-15 transition-colors duration-300 p-4 rounded-lg h-full flex flex-col justify-between">
                 <h5 className="text-sm overflow-hidden text-ellipsis whitespace-nowrap">
                   <Link to={`/issues/${issue}`} className="hover:underline">{issue}</Link> :&nbsp;
                   <Link to={`/sections/${category}`} className="hover:underline">{category}</Link>
