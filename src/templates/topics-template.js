@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 
 const topicsTemplate = ({ data, pageContext }) => {
   const allTopicsArticles = data.allMarkdownRemark.nodes;
-  console.log(data)
+  // console.log(data)
   return (
     <Layout>
       <Helmet title={`${pageContext.topic} | আল কাউসার`} />
