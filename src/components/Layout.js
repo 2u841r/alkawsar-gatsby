@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
           <p>
             Developer by&nbsp;
             <a
-              className="text-green-400"
+              className="text-green-600"
               href="https://zubairiz.com"
               target="_blank"
               rel="noreferrer"
@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
             </a>{' '}
             -{' '}
             <a
-              className="text-green-500"
+              className="text-green-700"
               href="https://zmt3.com"
               target="_blank"
               rel="noreferrer"
@@ -34,7 +34,7 @@ const Layout = ({ children }) => {
             </a>
           </p>
           <a
-            className="text-blue-400"
+            className="text-blue-500"
             href="https://github.com/2u841r/alkawsar-gatsby"
             target="_blank"
             rel="noreferrer"

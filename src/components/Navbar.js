@@ -98,7 +98,7 @@ const Navbar = () => {
                     }`}
                 style={{ zIndex: 50,
                     maxHeight: `${menuHeight}px`,
-                    background: 'radial-gradient(at top left, rgba(146,43,225,1) 0%, rgba(43,9,107,1) 100%)'
+                    background: 'radial-gradient(at top left, #94a3b8 0%, #64748b 100%)'
                 }}
             >
                 <div className="flex flex-col items-center py-4">

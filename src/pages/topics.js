@@ -25,7 +25,7 @@ const Topics = ({ data }) => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
                 {uniqueTopics.map(topic => (
                     <Link to={`/topics/${topic}`} key={topic} className="no-underline">
-                        <div className="bg-white bg-opacity-10 p-6 rounded-lg transition duration-300 hover:bg-opacity-20 hover:shadow-lg">
+                        <div className="bg-white bg-opacity-25 p-6 rounded-lg transition duration-300 hover:bg-opacity-50 hover:shadow-lg">
                             <h3 className="text-xl font-semibold text-center">{topic}</h3>
                         </div>
                     </Link>

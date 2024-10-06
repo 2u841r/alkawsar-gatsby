@@ -17,7 +17,7 @@ const Projects = ({ data }) => {
           const { an, title, issue, author, category } = a.frontmatter;
           return (
             <Link to={`/articles/${an}`} key={a.id} className="no-underline">
-              <div className="bg-white bg-opacity-10 hover:bg-opacity-15 transition-colors duration-300 p-4 rounded-lg h-44 w-full flex flex-col justify-between">
+              <div className="bg-white bg-opacity-25 hover:bg-opacity-50 transition-colors duration-300 p-4 rounded-lg h-44 w-full flex flex-col justify-between">
                 <h5 className="text-sm overflow-hidden text-ellipsis whitespace-nowrap">
                   <Link to={`/issues/${issue}`} className="hover:underline">{issue}</Link> :  &nbsp;
                   <Link to={`/sections/${category}`} className="hover:underline">{category}</Link>

@@ -20,7 +20,7 @@ const Authors = ({ data }) => {
           const { author } = a.frontmatter;
           return (
             <Link to={`/authors/${author}`} key={a.id} className="no-underline">
-              <div className="bg-white bg-opacity-10 p-6 rounded-lg transition duration-300 hover:bg-opacity-20 hover:shadow-lg">
+              <div className="bg-white bg-opacity-25 p-6 rounded-lg transition duration-300 hover:bg-opacity-50 hover:shadow-lg">
                 <h3 className="text-xl font-semibold text-center">{author}</h3>
               </div>
             </Link>
